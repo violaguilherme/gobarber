@@ -1,3 +1,4 @@
+import { animated } from "react-spring"
 import styled, { css } from "styled-components"
 
 interface ContainerProps {
@@ -20,7 +21,7 @@ const toastTypeVariations = {
     `
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled(animated.div)<ContainerProps>`
     width: 36rem;
     position: relative;
     padding: 1.6rem 3rem 1.6rem 1.6rem;
