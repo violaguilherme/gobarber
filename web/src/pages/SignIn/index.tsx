@@ -4,12 +4,13 @@ import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
 import * as Yup from "yup"
 
-import { useAuth } from "../../context/AuthContext";
-import { Container, Content, Background } from "./styles";
 import getValidationErrors from "../../utils/getValidationErrors";
 import logoSvg from "../../assets/logo.svg"
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { Container, Content, Background } from "./styles";
+import { useAuth } from "../../hooks/auth";
+import { useToast } from "../../hooks/toast";
 
 interface SignInFormData {
     email: string
@@ -20,6 +21,7 @@ const SignIn: React.FC = () => {
     const formRef = useRef<FormHandles>(null)
 
     const { signIn } = useAuth()
+    const { addToast } = useToast()
 
     const handleSubmit = useCallback(async (data: SignInFormData) => {
         try {
@@ -34,17 +36,26 @@ const SignIn: React.FC = () => {
             abortEarly: false,
         })
 
-        signIn({
+        await signIn({
             email: data.email,
             password: data.password
         })
     }catch(err){
-            // @ts-ignore
-            const errors = getValidationErrors(err)
 
-            formRef.current?.setErrors(errors)
+            if (err instanceof Yup.ValidationError) {
+                // @ts-ignore
+                const errors = getValidationErrors(err)
+    
+                formRef.current?.setErrors(errors)
+            }
+
+            addToast({
+                type: "error",
+                title: "Erro na autenticação",
+                description: "Ocorreu um erro ao realizar o login, cheque as credenciais"
+            })
         }
-    },[signIn])
+    },[signIn, addToast])
 
     return (
         <Container>
