@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --ignore node_modules src/server.ts",
-    "start": "ts-node src/server.ts",
+    "dev": "ts-node-dev --ignore node_modules src/shared/infra/http/server.ts",
+    "start": "ts-node src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "test": "jest"
   },
@@ -59,7 +59,6 @@
     "jest": "^26.0.1",
     "ts-jest": "^25.5.1",
     "ts-node-dev": "^1.0.0-pre.44",
-    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.8.3"
   }
 }
