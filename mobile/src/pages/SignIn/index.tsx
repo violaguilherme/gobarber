@@ -10,6 +10,7 @@ import getValidationErrors from "../../utils/getValidationErrors";
 import logoImg from "../../assets/logo.png"
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { useAuth } from "../../hooks/auth";
 import { 
     Container, 
     Title, 
@@ -27,7 +28,10 @@ interface SignInFormData {
 const SignIn: React.FC = () => {
     const formRef = useRef<FormHandles>(null)
     const passwordInputRef = useRef<TextInput>(null)
+
     const navigation = useNavigation()
+
+    const { signIn } = useAuth()
 
     const handleSignIn = useCallback(async (data: SignInFormData) => {
         try {
@@ -42,12 +46,11 @@ const SignIn: React.FC = () => {
             abortEarly: false,
         })
 
-        // await signIn({
-        //     email: data.email,
-        //     password: data.password
-        // })
+        await signIn({
+            email: data.email,
+            password: data.password
+        })
 
-        // history.push("/dashboard")
     }catch(err){
         if (err instanceof Yup.ValidationError) {
             
@@ -60,7 +63,7 @@ const SignIn: React.FC = () => {
 
         Alert.alert("Erro na autenticação", "Ocorreu um erro ao realizar o login, cheque as credenciais")
         }
-    },[])
+    },[signIn])
 
     return (
         <>
