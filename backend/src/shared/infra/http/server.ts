@@ -5,6 +5,7 @@ import "express-async-errors"
 import cors from "cors"
 
 import "../typeorm"
+import "../../container"
 import routes from "./routes"
 import uploadConfig from "../../../config/upload"
 import AppError from "../../errors/AppError"
