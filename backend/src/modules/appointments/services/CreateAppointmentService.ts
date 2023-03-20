@@ -12,7 +12,10 @@ interface IRequestDTO {
 
 @injectable()
 class CreateAppointmentService {
-    constructor(@inject("AppointmentsRepository") private appointmentsRepository: IAppointmentsRepository) {}
+    constructor(
+        @inject("AppointmentsRepository") 
+        private appointmentsRepository: IAppointmentsRepository
+    ) {}
 
     public async execute({ provider_id, date }: IRequestDTO): Promise<Appointment> {
         const appointmentDate = startOfHour(date)
