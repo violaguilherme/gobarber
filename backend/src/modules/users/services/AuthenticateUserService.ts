@@ -1,13 +1,12 @@
 import { injectable, inject } from "tsyringe"
 import { sign } from "jsonwebtoken"
-
 import authConfig from "../../../config/auth"
 import AppError from "../../../shared/errors/AppError"
 import User from "../infra/typeorm/entities/User"
 import IHashProvider from "../providers/HashProvider/models/IHashProvider"
 import IUsersRepository from "../repositories/IUsersRepository"
 
-interface IRequestDTO {
+interface IRequest {
     email: string
     password: string
 }
@@ -27,7 +26,7 @@ class AuthenticateUserService {
         private hashProvider: IHashProvider
     ) {}
 
-    public async execute({ email, password }: IRequestDTO) : Promise<IResponse> {
+    public async execute({ email, password }: IRequest) : Promise<IResponse> {
         const user = await this.usersRepository.findByEmail(email)
 
         if (!user) {
