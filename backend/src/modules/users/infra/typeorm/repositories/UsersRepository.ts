@@ -4,7 +4,7 @@ import User from "../entities/User";
 
 import IUsersRepository from "../../../repositories/IUsersRepository";
 import ICreateUserDTO from "../../../dtos/ICreateUserDTO";
-import IFindAllProviders from "../../../dtos/IFindAllProvidersDTO";
+import IFindAllProvidersDTO from "../../../dtos/IFindAllProvidersDTO";
 
 class UsersRepository implements IUsersRepository {
     private ormRepository: Repository<User> 
@@ -27,7 +27,7 @@ class UsersRepository implements IUsersRepository {
         return user
     }
 
-    public async findAllProviders({ except_user_id }: IFindAllProviders): Promise<User[]> {
+    public async findAllProviders({ except_user_id }: IFindAllProvidersDTO): Promise<User[]> {
         let users: User[]
 
         if (except_user_id) {

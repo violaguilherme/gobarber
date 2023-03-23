@@ -1,5 +1,5 @@
-interface IFindAllProviders {
+interface IFindAllProvidersDTO {
     except_user_id?: string
 }
 
-export default IFindAllProviders
+export default IFindAllProvidersDTO
