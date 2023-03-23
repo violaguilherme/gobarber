@@ -15,56 +15,67 @@ describe("ListProviderMonthAvailability", () => {
     it("should be able to list all providers available in a month", async () => {
        await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 8, 0, 0)
         })
 
        await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 9, 0, 0)
         })
        
        await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 10, 0, 0)
         })
               
        await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 11, 0, 0)
         })
 
         await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 12, 0, 0)
         })
 
         await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 13, 0, 0)
         })
 
         await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 14, 0, 0)
         })
 
         await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 15, 0, 0)
         })
 
         await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 16, 0, 0)
         })
 
         await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 23, 17, 0, 0)
         })
 
         await fakeAppointmentsRepository.create({
             provider_id: "user",
+            user_id: "123",
             date: new Date(2023, 2, 24, 17, 0, 0)
         })
        
