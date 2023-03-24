@@ -5,7 +5,7 @@ import Appointment from "../entities/Appointment";
 import IAppointmentsRepository from "../../../repositories/IAppointmentsRepository";
 import ICreateAppointmentDTO from "../../../dtos/ICreateAppointmentDTO";
 import IFindAllInMonthFromProviderDTO from "../../../dtos/IFindAllInMonthFromProviderDTO";
-import IFindAllInDayFromProviderDTO from "../../../dtos/findAllInDayFromProvider";
+import IFindAllInDayFromProviderDTO from "../../../dtos/findAllInDayFromProviderDTO";
 
 class AppointmentsRepository implements IAppointmentsRepository {
     private ormRepository: Repository<Appointment> 
@@ -32,11 +32,12 @@ class AppointmentsRepository implements IAppointmentsRepository {
         const appointments = await this.ormRepository.find({
             where: {
                 provider_id,
-                date: Raw(dateFieldName => 
-                    `to_char(${dateFieldName}, "MM-YYYY) = "${parsedMonth}-${year}"`
-                )
-            }
-        })
+                date: Raw(
+                    dateFieldName =>
+                    `to_char(${dateFieldName}, 'MM-YYYY') = '${parsedMonth}-${year}'`,
+                ),
+            },
+        });
 
         return appointments
     }
@@ -52,16 +53,17 @@ class AppointmentsRepository implements IAppointmentsRepository {
         const appointments = await this.ormRepository.find({
             where: {
                 provider_id,
-                date: Raw(dateFieldName => 
-                    `to_char(${dateFieldName}, "DD-MM-YYYY) = "${parsedDay}-${parsedMonth}-${year}"`
-                )
-            }
-        })
+                date: Raw(
+                    dateFieldName =>
+                    `to_char(${dateFieldName}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMonth}-${year}'`,
+                ),
+            },
+        });
 
         return appointments
     }
 
-    public async create({ provider_id, user_id , date }: ICreateAppointmentDTO): Promise<Appointment> {
+    public async create({ provider_id, user_id, date }: ICreateAppointmentDTO): Promise<Appointment> {
         const appointment = this.ormRepository.create({ provider_id, user_id, date })
 
         await this.ormRepository.save(appointment)

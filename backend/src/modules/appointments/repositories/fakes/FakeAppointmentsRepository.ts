@@ -6,7 +6,7 @@ import ICreateAppointmentDTO from "../../dtos/ICreateAppointmentDTO";
 import IFindAllInMonthFromProviderDTO from "../../dtos/IFindAllInMonthFromProviderDTO";
 
 import Appointment from "../../infra/typeorm/entities/Appointment";
-import IFindAllInDayFromProviderDTO from "../../dtos/findAllInDayFromProvider";
+import IFindAllInDayFromProviderDTO from "../../dtos/findAllInDayFromProviderDTO";
 
 class FakeAppointmentsRepository implements IAppointmentsRepository {
     private appointments: Appointment[] = []
