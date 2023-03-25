@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import { container } from "tsyringe"
+import { classToClass } from "class-transformer"
 
 import CreateUserService from "../../../services/CreateUserService"
 
@@ -14,11 +15,8 @@ class UsersController {
             email, 
             password
         })
-        
-        // @ts-ignore
-        delete user.password    
     
-        return response.json(user)
+        return response.json(classToClass(user))
     }
 }
 
