@@ -3,6 +3,8 @@ build
 
 tmp/*
 !tmp/.gitkeep
+.env
+ormconfig.json
 
 README.md
 
