@@ -1,3 +1,4 @@
+import { celebrate, Segments, Joi } from "celebrate"
 import { Router } from "express"
 
 import ensureAuthenticeted from "../../../../users/infra/http/middlewares/ensureAuthenticated"
@@ -10,13 +11,12 @@ const providerAppointmentsController = new ProviderAppointmentsController()
 
 appointmentsRouter.use(ensureAuthenticeted)
 
-// appointmentsRouter.get("/", async (request, response) => {
-//     const appointments = await appoitmentsRepository.find()
-
-//     return response.json(appointments)
-// })
-
-appointmentsRouter.post("/", appointmentsController.create)
+appointmentsRouter.post("/", celebrate({
+    [Segments.BODY]: {
+        provider_id: Joi.string().uuid().required(),
+        date: Joi.date()
+    }
+}), appointmentsController.create)
 appointmentsRouter.get("/me", providerAppointmentsController.index)
 
 export default appointmentsRouter
