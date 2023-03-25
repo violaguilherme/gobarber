@@ -5,7 +5,7 @@ import Appointment from "../entities/Appointment";
 import IAppointmentsRepository from "../../../repositories/IAppointmentsRepository";
 import ICreateAppointmentDTO from "../../../dtos/ICreateAppointmentDTO";
 import IFindAllInMonthFromProviderDTO from "../../../dtos/IFindAllInMonthFromProviderDTO";
-import IFindAllInDayFromProviderDTO from "../../../dtos/findAllInDayFromProviderDTO";
+import IFindAllInDayFromProviderDTO from "../../../dtos/IfindAllInDayFromProviderDTO";
 
 class AppointmentsRepository implements IAppointmentsRepository {
     private ormRepository: Repository<Appointment> 

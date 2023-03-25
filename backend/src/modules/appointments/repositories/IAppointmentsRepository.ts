@@ -1,4 +1,4 @@
-import IFindAllInDayFromProviderDTO from "../dtos/findAllInDayFromProviderDTO";
+import IFindAllInDayFromProviderDTO from "../dtos/IfindAllInDayFromProviderDTO";
 import ICreateAppointmentDTO from "../dtos/ICreateAppointmentDTO";
 import IFindAllInMonthFromProviderDTO from "../dtos/IFindAllInMonthFromProviderDTO";
 import Appointment from "../infra/typeorm/entities/Appointment";
