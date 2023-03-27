@@ -33,8 +33,6 @@ class ListProviderAppointmentsService {
                 month,
                 year
             })
-
-            console.log("searched in database")
     
             await this.cacheProvider.save(cacheKey, appointments)
         }
