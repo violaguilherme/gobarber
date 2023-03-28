@@ -1,8 +1,10 @@
+import { classToClass } from "class-transformer"
 import { injectable, inject } from "tsyringe"
+
 import ICacheProvider from "../../../shared/container/providers/CacheProvider/models/ICacheProvider"
 import Appointment from "../infra/typeorm/entities/Appointment"
-
 import IAppointmentsRepository from "../repositories/IAppointmentsRepository"
+
 
 interface IRequest {
     provider_id: string
@@ -34,7 +36,7 @@ class ListProviderAppointmentsService {
                 year
             })
     
-            await this.cacheProvider.save(cacheKey, appointments)
+            await this.cacheProvider.save(cacheKey, classToClass(appointments))
         }
 
         return appointments
