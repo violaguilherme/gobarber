@@ -5,7 +5,7 @@ import { FormHandles } from "@unform/core";
 import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup"
 
-import logoSvg from "../../assets/logo.svg"
+import logoImg from "../../assets/logo.svg"
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import getValidationErrors from "../../utils/getValidationErrors";
@@ -73,7 +73,7 @@ const SignUp: React.FC = () => {
 
             <Content>
                 <AnimationContainer>
-                    <img src={logoSvg} alt="GoBarber" />
+                    <img src={logoImg} alt="GoBarber" />
 
                     <Form ref={formRef} onSubmit={handleSubmit}>
                         <h1>Faça seu Cadastro</h1>
