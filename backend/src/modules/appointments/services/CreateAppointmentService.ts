@@ -1,7 +1,7 @@
 import { format, getHours, isBefore, startOfHour } from "date-fns";
 import { injectable, inject } from "tsyringe";
-import ICacheProvider from "../../../shared/container/providers/CacheProvider/models/ICacheProvider";
 
+import ICacheProvider from "../../../shared/container/providers/CacheProvider/models/ICacheProvider";
 import AppError from "../../../shared/errors/AppError";
 import INotificationsRepository from "../../notifications/repositories/INotificationsRepository";
 import Appointment from "../infra/typeorm/entities/Appointment";

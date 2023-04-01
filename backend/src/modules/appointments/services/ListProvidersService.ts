@@ -1,6 +1,6 @@
 import { injectable, inject } from "tsyringe"
-import ICacheProvider from "../../../shared/container/providers/CacheProvider/models/ICacheProvider"
 
+import ICacheProvider from "../../../shared/container/providers/CacheProvider/models/ICacheProvider"
 import User from "../../users/infra/typeorm/entities/User"
 import IUsersRepository from "../../users/repositories/IUsersRepository"
 
