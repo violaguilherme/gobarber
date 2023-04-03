@@ -4,7 +4,9 @@ import ptBR from "date-fns/locale/pt-BR"
 import { FiClock, FiPower } from "react-icons/fi";
 import DayPicker, { DayModifiers } from "react-day-picker"
 import "react-day-picker/lib/style.css"
+import { Link } from "react-router-dom";
 
+import api from "../../services/api";
 import logoImg from "../../assets/logo.svg"
 import { useAuth } from "../../hooks/auth";
 import { 
@@ -19,7 +21,6 @@ import {
     Appointment, 
     Calendar, 
 } from "./styles";
-import api from "../../services/api";
 
 interface MonthAvailabilityItem {
     day: number
@@ -80,7 +81,6 @@ const DashBoard: React.FC = () => {
                 }
             })
             setAppointments(appointmentsFormatted)
-            console.log(response.data)
         })
     }, [selectedDate])
 
@@ -145,7 +145,10 @@ const DashBoard: React.FC = () => {
 
                         <div>
                             <span>Bem vindo, </span>
-                            <strong>{user.name}</strong>
+                            
+                            <Link to="/profile">
+                                <strong>{user.name}</strong>
+                            </Link>
                         </div>
 
                     </Profile>
