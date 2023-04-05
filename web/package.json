@@ -56,9 +56,12 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "3.2.0",
     "@types/axios": "^0.14.0",
     "@types/date-fns": "^2.6.0",
     "@types/styled-components": "^5.1.0",
-    "@types/yup": "^0.26.37"
+    "@types/yup": "^0.26.37",
+    "axios-mock-adapter": "1.18.1",
+    "react-test-renderer": "16.13.1"
   }
 }
