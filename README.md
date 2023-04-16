@@ -4,7 +4,7 @@
 
 Versões web e mobile
 
-Bootcamp da Rocketseat
+GoStack - Bootcamp da Rocketseat
 
 ![preview](./.github/preview.png)
 
